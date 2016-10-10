@@ -1,0 +1,298 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		278CA75D1D9C00CD00410F30 /* APP.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 278CA7511D9C00CD00410F30 /* APP.cpp */; };
+		278CA75E1D9C00CD00410F30 /* Displayer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 278CA7521D9C00CD00410F30 /* Displayer.cpp */; };
+		278CA75F1D9C00CD00410F30 /* MessageSender.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 278CA7541D9C00CD00410F30 /* MessageSender.cpp */; };
+		278CA7601D9C00CD00410F30 /* NetCommon.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 278CA7561D9C00CD00410F30 /* NetCommon.cpp */; };
+		278CA7611D9C00CD00410F30 /* Receiver.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 278CA7581D9C00CD00410F30 /* Receiver.cpp */; };
+		278CA7651D9C010300410F30 /* RTT.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 278CA7621D9C010300410F30 /* RTT.cpp */; };
+		278CA7661D9C010300410F30 /* sendRecv.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 278CA7641D9C010300410F30 /* sendRecv.cpp */; };
+		27CE85FA1D93EA0100841E9B /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 27CE85F91D93EA0100841E9B /* main.cpp */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		27CE85F41D93EA0100841E9B /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = /usr/share/man/man1/;
+			dstSubfolderSpec = 0;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 1;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		278CA7511D9C00CD00410F30 /* APP.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = APP.cpp; sourceTree = "<group>"; };
+		278CA7521D9C00CD00410F30 /* Displayer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Displayer.cpp; sourceTree = "<group>"; };
+		278CA7531D9C00CD00410F30 /* Displayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Displayer.h; sourceTree = "<group>"; };
+		278CA7541D9C00CD00410F30 /* MessageSender.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MessageSender.cpp; sourceTree = "<group>"; };
+		278CA7551D9C00CD00410F30 /* MessageSender.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MessageSender.h; sourceTree = "<group>"; };
+		278CA7561D9C00CD00410F30 /* NetCommon.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = NetCommon.cpp; sourceTree = "<group>"; };
+		278CA7571D9C00CD00410F30 /* NetCommon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NetCommon.h; sourceTree = "<group>"; };
+		278CA7581D9C00CD00410F30 /* Receiver.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Receiver.cpp; sourceTree = "<group>"; };
+		278CA7591D9C00CD00410F30 /* Receiver.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Receiver.h; sourceTree = "<group>"; };
+		278CA75A1D9C00CD00410F30 /* Sender.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Sender.h; sourceTree = "<group>"; };
+		278CA75B1D9C00CD00410F30 /* SenderFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SenderFactory.h; sourceTree = "<group>"; };
+		278CA75C1D9C00CD00410F30 /* ThreadMan.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ThreadMan.h; sourceTree = "<group>"; };
+		278CA7621D9C010300410F30 /* RTT.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = RTT.cpp; sourceTree = "<group>"; };
+		278CA7631D9C010300410F30 /* RTT.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RTT.h; sourceTree = "<group>"; };
+		278CA7641D9C010300410F30 /* sendRecv.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = sendRecv.cpp; sourceTree = "<group>"; };
+		27CE85F61D93EA0100841E9B /* spray-mac */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "spray-mac"; sourceTree = BUILT_PRODUCTS_DIR; };
+		27CE85F91D93EA0100841E9B /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		27CE85F31D93EA0100841E9B /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		27CE85ED1D93EA0100841E9B = {
+			isa = PBXGroup;
+			children = (
+				27CE85F81D93EA0100841E9B /* spray-mac */,
+				27CE85F71D93EA0100841E9B /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		27CE85F71D93EA0100841E9B /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				27CE85F61D93EA0100841E9B /* spray-mac */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		27CE85F81D93EA0100841E9B /* spray-mac */ = {
+			isa = PBXGroup;
+			children = (
+				278CA7621D9C010300410F30 /* RTT.cpp */,
+				278CA7631D9C010300410F30 /* RTT.h */,
+				278CA7641D9C010300410F30 /* sendRecv.cpp */,
+				278CA7511D9C00CD00410F30 /* APP.cpp */,
+				278CA7521D9C00CD00410F30 /* Displayer.cpp */,
+				278CA7531D9C00CD00410F30 /* Displayer.h */,
+				278CA7541D9C00CD00410F30 /* MessageSender.cpp */,
+				278CA7551D9C00CD00410F30 /* MessageSender.h */,
+				278CA7561D9C00CD00410F30 /* NetCommon.cpp */,
+				278CA7571D9C00CD00410F30 /* NetCommon.h */,
+				278CA7581D9C00CD00410F30 /* Receiver.cpp */,
+				278CA7591D9C00CD00410F30 /* Receiver.h */,
+				278CA75A1D9C00CD00410F30 /* Sender.h */,
+				278CA75B1D9C00CD00410F30 /* SenderFactory.h */,
+				278CA75C1D9C00CD00410F30 /* ThreadMan.h */,
+				27CE85F91D93EA0100841E9B /* main.cpp */,
+			);
+			path = "spray-mac";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		27CE85F51D93EA0100841E9B /* spray-mac */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 27CE85FD1D93EA0100841E9B /* Build configuration list for PBXNativeTarget "spray-mac" */;
+			buildPhases = (
+				27CE85F21D93EA0100841E9B /* Sources */,
+				27CE85F31D93EA0100841E9B /* Frameworks */,
+				27CE85F41D93EA0100841E9B /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "spray-mac";
+			productName = "spray-mac";
+			productReference = 27CE85F61D93EA0100841E9B /* spray-mac */;
+			productType = "com.apple.product-type.tool";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		27CE85EE1D93EA0100841E9B /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0800;
+				ORGANIZATIONNAME = frostbitespider;
+				TargetAttributes = {
+					27CE85F51D93EA0100841E9B = {
+						CreatedOnToolsVersion = 8.0;
+						ProvisioningStyle = Automatic;
+					};
+				};
+			};
+			buildConfigurationList = 27CE85F11D93EA0100841E9B /* Build configuration list for PBXProject "spray-mac" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 27CE85ED1D93EA0100841E9B;
+			productRefGroup = 27CE85F71D93EA0100841E9B /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				27CE85F51D93EA0100841E9B /* spray-mac */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXSourcesBuildPhase section */
+		27CE85F21D93EA0100841E9B /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				278CA7611D9C00CD00410F30 /* Receiver.cpp in Sources */,
+				278CA7651D9C010300410F30 /* RTT.cpp in Sources */,
+				278CA75F1D9C00CD00410F30 /* MessageSender.cpp in Sources */,
+				27CE85FA1D93EA0100841E9B /* main.cpp in Sources */,
+				278CA75E1D9C00CD00410F30 /* Displayer.cpp in Sources */,
+				278CA7601D9C00CD00410F30 /* NetCommon.cpp in Sources */,
+				278CA75D1D9C00CD00410F30 /* APP.cpp in Sources */,
+				278CA7661D9C010300410F30 /* sendRecv.cpp in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		27CE85FB1D93EA0100841E9B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVES = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "-";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.11;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		27CE85FC1D93EA0100841E9B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVES = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "-";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.11;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		27CE85FE1D93EA0100841E9B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		27CE85FF1D93EA0100841E9B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		27CE85F11D93EA0100841E9B /* Build configuration list for PBXProject "spray-mac" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				27CE85FB1D93EA0100841E9B /* Debug */,
+				27CE85FC1D93EA0100841E9B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		27CE85FD1D93EA0100841E9B /* Build configuration list for PBXNativeTarget "spray-mac" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				27CE85FE1D93EA0100841E9B /* Debug */,
+				27CE85FF1D93EA0100841E9B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 27CE85EE1D93EA0100841E9B /* Project object */;
+}
