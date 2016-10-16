@@ -1,6 +1,7 @@
 #include <setjmp.h>
 #include <sys/time.h>
 #include <stdint.h>
+#include <pthread.h>
 #pragma once
 #define RTT_RXTMIN 2//min retransmit timeout value, in seconds
 #define RTT_RXTMAX 60//max retransmit timeout value, in seconds
