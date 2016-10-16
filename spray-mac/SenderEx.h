@@ -1,6 +1,7 @@
 #include "RTT.h"
 #include "unp.h"
 #include "MessageHeader.h"
+#include <pthread.h>
 #include <setjmp.h>
 #include <signal.h>
 #pragma once
@@ -72,6 +73,10 @@ sendagain:
     //ssize_t sendmsg(int sock, const struct msghdr *msg, int flags);
     sendmsg(fd,&msgsend,0);
     printf("sending iovec:%s\n",(char*)msgsend.msg_iov[1].iov_base);
+    
+    //to be change using pthread
+    
+    
     alarm(rtt_start(&rttinfo));//set alarm for RTO seconds
     if(sigsetjmp(jmpbuf,1)!=0){
         if(rtt_timeout(&rttinfo)<0){//double RTO,retransmit enough

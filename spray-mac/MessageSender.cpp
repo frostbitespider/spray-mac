@@ -1,6 +1,13 @@
 #include "MessageSender.h"
-MessageSender::MessageSender(SendType t,Strategy s):type(t),strategy(s){};
+MessageSender::MessageSender(SendType t,Strategy s):type(t),strategy(s){
+    if((sockfd=Socket(AF_INET,SOCK_DGRAM,0))==-1){
+        return;
+    }
+};
 MessageSender::MessageSender(const char* ip4,int port,SendType t,Strategy s):type(t),strategy(s){
+    if((sockfd=Socket(AF_INET,SOCK_DGRAM,0))==-1){
+        return;
+    }
     setDst(ip4, port);
     //setSockaddr(&selfAddr,AF_INET,str,8000);
     //setSockaddr(&dstAddr,AF_INET,ip4,8080);
@@ -13,9 +20,6 @@ void MessageSender::sock_close(){
     close(sockfd);
 }
 void MessageSender::setDst(const char* ip4,int port){
-    if((sockfd=Socket(AF_INET,SOCK_DGRAM,0))==-1){
-        return;
-    }
     memset(&dstAddr,0,sizeof(dstAddr));
     //memset(&selfAddr,0,sizeof(selfAddr));
     //const char* str="127.0.0.1";

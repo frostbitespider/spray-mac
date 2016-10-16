@@ -1,6 +1,6 @@
 #include <pthread.h>
-#include <iostream>
 #include <stdlib.h>
+#include <iostream>
 #include <memory.h>
 #include "Runnable.h"
 #include "Receiver.h"
@@ -9,7 +9,7 @@
 class Receiver;
 class Displayer:public Runnable{
     public:
-    Displayer();
+    Displayer(Receiver* re);
     //Displayer(pthread_t& tid1,pthread_t& tid2);
     ~Displayer(){}
     Receiver& getReceiver();

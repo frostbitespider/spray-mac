@@ -26,12 +26,13 @@ private:
     int sockfd;
     SAI selfAddr;
     int curRecvLen;
-    int curDisLen;
     //pthread_t lisThread;
     //pthread_mutex_t Readmutex;
     pthread_mutex_t mutex;
+    pthread_mutex_t sig_mutex;
     pthread_cond_t recv_cond;
-    pthread_cond_t* sig_cond;
+    pthread_cond_t sig_cond;
+    bool msgcoming;
 };
 
 void* KeepListen(void* r);

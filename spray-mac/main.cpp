@@ -7,9 +7,10 @@
 //
 
 #include <iostream>
-
-int x_main(int argc, const char * argv[]) {
+#include "APP.h"
+int main(int argc, const char * argv[]) {
     // insert code here...
     std::cout << "Hello, World!\n";
+    test();
     return 0;
 }

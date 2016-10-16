@@ -14,12 +14,13 @@ void Receiver::unlock()
 Receiver::Receiver()
 {
     pthread_mutex_init(&mutex, NULL);
+    pthread_mutex_init(&sig_mutex, NULL);
     pthread_cond_init(&recv_cond,NULL);
+    pthread_cond_init(&sig_cond, NULL);
     recvBuf = (char *)malloc(Length);
     disBuf = (char *)malloc(Length);
     memset(recvBuf, 0, Length);
     memset(disBuf, 0, Length);
-    //pthread_exit(NULL);
 }
 char* Receiver::getDisBuf() const{
     return disBuf;
@@ -61,6 +62,7 @@ void Receiver::initSocket(){
         printf("bind error\n");
         return;
     }
+    isReady=true;
 }
 // void Receiver::Run(){
 //     pthread_attr_t attr;
@@ -75,7 +77,6 @@ void Receiver::initSocket(){
 // }
 void Receiver::start()
 {
-    initSocket();
     //SA srcAddr;
     socklen_t socklen=sizeof(selfAddr);
     SA recvAddr;
@@ -84,16 +85,24 @@ void Receiver::start()
     int i=0;
     int sendsockfd=Socket(AF_INET, SOCK_DGRAM, 0);
     isReady=true;
+//    pthread_mutex_lock(&sig_mutex);
+//    pthread_cond_signal(&sig_cond);
+//    pthread_mutex_unlock(&sig_mutex);
     while(1)
     {
+        msgcoming=false;
         //lock();
         curRecvLen=recvfrom(sockfd,recvBuf,Length,0,&recvAddr,&socklen);
+        msgcoming=true;
+        printf("receive %d\n",curRecvLen);
+        if(curRecvLen<=0)
+            continue;
         recvBuf[curRecvLen]=0;
         char* t=(char*)malloc(curRecvLen);
         memcpy(t,recvBuf,curRecvLen);
-        Msg m(t,curRecvLen);
+        Msg* m=new Msg(t,curRecvLen);
         lock();
-        msgQueue.push(&m);
+        msgQueue.push(m);
         pthread_cond_signal(&recv_cond);
         unlock();
         printf("RECV %d:%s\n",i++,recvBuf);
@@ -114,8 +123,11 @@ void Receiver::start()
 }
 //启动监听
 void Receiver::Run(){
-    if(!isReady)
+    if(!isReady){
+        initSocket();
         this->start();
+    }
+    this->start();
 }
 
 Receiver::~Receiver()
@@ -123,5 +135,8 @@ Receiver::~Receiver()
     close(sockfd);
     pthread_mutex_destroy(&mutex);
     pthread_cond_destroy(&recv_cond);
-    pthread_exit(NULL);
+    pthread_mutex_destroy(&sig_mutex);
+    pthread_cond_destroy(&sig_cond);
+    printf("receiver dtor\n");
+    //pthread_exit(NULL);
 }
