@@ -9,7 +9,8 @@ int main()
     // Displayer dis;
     // ThreadDisp(&thDisp,&dis);
     pthread_t threads[10];
-    Displayer disp(threads[0],threads[1]);
+    Displayer disp;
+    RunThread(threads,&disp);
     char* buff=(char*)malloc(1024);
     while(gets(buff)!=NULL){
         Msg m{buff};

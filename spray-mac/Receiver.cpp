@@ -62,17 +62,17 @@ void Receiver::initSocket(){
         return;
     }
 }
-void Receiver::Run(pthread_t& tid){
-    pthread_attr_t attr;
-    pthread_attr_init(&attr);
-    pthread_attr_setdetachstate(&attr,PTHREAD_CREATE_JOINABLE);
-    int err=pthread_create(&tid, &attr, _thread_t<Receiver,&Receiver::_RunThread>, this);
-    //int err=pthread_create(&lisThread, NULL, KeepListen, this);
-    if (err != 0){
-        printf("can't create thread: %s\n", strerror(err));
-    }
-    pthread_attr_destroy(&attr);
-}
+// void Receiver::Run(){
+//     pthread_attr_t attr;
+//     pthread_attr_init(&attr);
+//     pthread_attr_setdetachstate(&attr,PTHREAD_CREATE_JOINABLE);
+//     int err=pthread_create(&tid, &attr, _thread_t<Receiver,&Receiver::_RunThread>, this);
+//     //int err=pthread_create(&lisThread, NULL, KeepListen, this);
+//     if (err != 0){
+//         printf("can't create thread: %s\n", strerror(err));
+//     }
+//     pthread_attr_destroy(&attr);
+// }
 void Receiver::start()
 {
     initSocket();
@@ -83,6 +83,7 @@ void Receiver::start()
     printf("Receiver start\n");
     int i=0;
     int sendsockfd=Socket(AF_INET, SOCK_DGRAM, 0);
+    isReady=true;
     while(1)
     {
         //lock();
@@ -112,8 +113,9 @@ void Receiver::start()
     }
 }
 //启动监听
-void Receiver::_RunThread(){
-    this->start();
+void Receiver::Run(){
+    if(!isReady)
+        this->start();
 }
 
 Receiver::~Receiver()

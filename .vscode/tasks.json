@@ -1,0 +1,12 @@
+{
+    // See https://go.microsoft.com/fwlink/?LinkId=733558
+    // for the documentation about the tasks.json format
+    "version": "0.1.0",
+    "command": "g++",
+    "isShellCommand": false,
+    "a":"spray-mac",
+    "args": ["-g","${fileDirname}/APP.cpp","${fileDirname}/Displayer.cpp","${fileDirname}/Receiver.cpp","${fileDirname}/MessageSender.cpp","${fileDirname}/RTT.cpp","${fileDirname}/unp.cpp","-o","output.out","-std=c++11"],
+    //"args": ["-g","Displayer.cpp","Receiver.cpp","unp.cpp","MessageSender.cpp","APP.cpp","-o","output.out","-std=c++11"],
+    "showOutput": "always",
+    "echoCommand": true
+}

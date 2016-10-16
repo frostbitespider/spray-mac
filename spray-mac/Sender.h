@@ -1,8 +1,8 @@
-#include "NetCommon.h"
+#include "unp.h"
 #pragma once
 enum Strategy{
     ONCE,
-    TILRECV
+    NEEDACK
 };
 enum SendType{
     BROADCAST,
@@ -19,7 +19,7 @@ class Msg{
     Msg(byte* b,int s):buf(b),bufsize(s){}
     Msg(char* c,int s):buf((byte*)c),bufsize(s){}
     ~Msg(){
-        //free(buf);
+        free(buf);
     }
     byte* buf;
     int bufsize;

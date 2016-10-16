@@ -1,5 +1,5 @@
 #include "RTT.h"
-#include "NetCommon.h"
+#include "unp.h"
 #include <setjmp.h>
 #include <signal.h>
 #define RTT_DEBUG
@@ -28,6 +28,7 @@ ssize_t send_and_recv(int fd,void* outbuff,size_t outbytes,void* inbuff,size_t i
     msgsend.msg_namelen=dstlen;
     msgsend.msg_iov=iovsend;
     msgsend.msg_iovlen=2;
+    //这里改为messageheader
     iovsend[0].iov_base=&sendhdr;
     iovsend[0].iov_len=sizeof(struct hdr);
     iovsend[1].iov_base=outbuff;
@@ -84,7 +85,7 @@ int main(){
     }
     memset(&dstAddr,0,sizeof(dstAddr));
     //memset(&selfAddr,0,sizeof(selfAddr));
-    const char* str="192.168.1.156";
+    const char* str="192.168.0.107";
    // const int on=1;
     dstAddr.sin_family=AF_INET;
     dstAddr.sin_port=htons(8080);

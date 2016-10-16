@@ -1,4 +1,6 @@
 #include "Sender.h"
+#include "MessageHeader.h"
+//#include "SenderEx.h"
 class MessageSender{
     public:
     MessageSender(SendType t,Strategy s);

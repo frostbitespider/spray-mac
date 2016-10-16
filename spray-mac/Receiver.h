@@ -1,27 +1,22 @@
 #include <pthread.h>
-#include "NetCommon.h"
-#include "ThreadMan.h"
+#include "unp.h"
+#include "Runnable.h"
 #include <queue>
 #include "Sender.h"
 //#include "Displayer.h"
 #pragma once
 class Displayer;
-class Receiver{
+class Receiver:public Runnable{
 public:
     friend class Displayer;
     Receiver();
     ~Receiver();
     void lock();
     void unlock();
-    //void copyto(char* buf,int len);
     char* getDisBuf() const;
-    void _RunThread();
-    void Run(pthread_t& tid);
-    //void disp();
-    //void setSigcond(pthread_cond_t* cond);
+    void Run();
     ///queue 不是线程安全的
     std::queue<Msg*> msgQueue;
-    //friend void* keepListen(Receiver* r);
 private:
     void start();
     void initSocket();

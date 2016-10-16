@@ -2,12 +2,18 @@
 #include "MessageSender.h"
 //tid1 to start display
 //tid2 to start receiver
-Displayer::Displayer(pthread_t& tid1,pthread_t& tid2){
+
+Displayer::Displayer(){
+    pthread_t tid;
     r=new Receiver();
-    r->Run(tid2);
-    pthread_create(&tid1,NULL,_thread_t<Displayer,&Displayer::_RunThread>,this);
+    RunThread(&tid,r);
 }
-void Displayer::_RunThread(){
+// Displayer::Displayer(pthread_t& tid1,pthread_t& tid2){
+//     r=new Receiver();
+//     r->Run(tid2);
+//     pthread_create(&tid1,NULL,_thread_t<Displayer,&Displayer::_Run>,this);
+// }
+void Displayer::Run(){
     pthread_detach(pthread_self());
     MessageSender sender(SINGLECAST,ONCE);
     int i=0;

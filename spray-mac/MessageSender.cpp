@@ -42,12 +42,14 @@ int MessageSender::send(Msg m)
         sendto(sockfd, (char*)m.buf, m.bufsize, 0, (SA *)&dstAddr, sizeof(dstAddr));
     }
     else if(type==SINGLECAST){
-        if(strategy==TILRECV){
-            while(1){
-                printf("SENDING:%s\n",(char*)m.buf);
-                sendto(sockfd, (char*)m.buf, m.bufsize, 0, (SA *)&dstAddr, sizeof(dstAddr));
-                sleep(2);
-            }
+        if(strategy==NEEDACK){
+            MessageHeader mh;
+            pthread_t tid;
+            // SenderEx sender;
+            // sender.setHeader(mh);
+            
+            // sender.dojob(tid);
+            //pthread_join(tid);
         }
         else if (strategy == ONCE)
         {
