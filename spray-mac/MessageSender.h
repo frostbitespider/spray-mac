@@ -1,5 +1,5 @@
 #include "Sender.h"
-#include "MessageHeader.h"
+#include "MsgHdr.h"
 //#include "SenderEx.h"
 class MessageSender{
     public:

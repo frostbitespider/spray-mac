@@ -29,16 +29,18 @@ void Displayer::Run(){
         //r->lock();
         pthread_cond_wait(&(r->recv_cond),&(r->mutex));
         while (r->msgQueue.size()>0) {
-            Msg* m=r->msgQueue.front();
-            printf("DISPLAY %d:%s\n", i++,m->buf);
+            Msg msg=*(r->msgQueue.front());
+            Msghdr mh;
+            memcpy(&mh,msg._str,sizeof(Msghdr));
+            //printf("DISPLAY %d:%s\n", i++,((char*)msg->_str));
+            printf("Hdr from uID %d type %d info %d\n",mh.uID,mh.type,mh.info);
+            printf("sring: %s\n",(char*)(msg._str)+sizeof(Hdr));
 //            Msg ack{"ack"};
 //            sender.send(ack);
             //dosomething
             //文件传输不应该使用udp
             //r->lock();
             r->msgQueue.pop();
-            delete m;
-
             //r->unlock();
         }
         r->unlock();

@@ -21,9 +21,8 @@ void MessageSender::sock_close(){
 }
 void MessageSender::setDst(const char* ip4,int port){
     memset(&dstAddr,0,sizeof(dstAddr));
-    //memset(&selfAddr,0,sizeof(selfAddr));
     //const char* str="127.0.0.1";
-    const int on=1;
+    //const int on=1;
     dstAddr.sin_family=AF_INET;
     dstAddr.sin_port=htons(8080);
     inet_pton(AF_INET,ip4,&dstAddr.sin_addr);
@@ -43,22 +42,21 @@ int MessageSender::send(Msg m)
             return -1;
         }
         printf("BROADCASTING\n");
-        sendto(sockfd, (char*)m.buf, m.bufsize, 0, (SA *)&dstAddr, sizeof(dstAddr));
+        sendto(sockfd, (char*)m._str, m._size, 0, (SA *)&dstAddr, sizeof(dstAddr));
     }
     else if(type==SINGLECAST){
         if(strategy==NEEDACK){
-            MessageHeader mh;
+            Msghdr mh;
             pthread_t tid;
             // SenderEx sender;
             // sender.setHeader(mh);
-            
             // sender.dojob(tid);
             //pthread_join(tid);
         }
         else if (strategy == ONCE)
         {
-            printf("SENDING:%s\n", (char *)m.buf);
-            sendto(sockfd, (char *)m.buf, m.bufsize, 0, (SA *)&dstAddr, sizeof(dstAddr));
+            printf("SENDING:%s\n", (char *)m._str);
+            sendto(sockfd, (char *)m._str, m._size, 0, (SA *)&dstAddr, sizeof(dstAddr));
         }
     }
     sock_close();

@@ -5,9 +5,10 @@ typedef struct{
     uint32_t uID;
     uint32_t type;
     uint32_t info;
-} MessageHeader;
+} Msghdr;
 typedef struct{
     uint32_t seq;
     uint32_t ts;
-    MessageHeader mh;
-} Header;
+    uint32_t ackseq;
+    Msghdr mh;
+} Hdr;

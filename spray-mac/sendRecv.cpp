@@ -76,7 +76,7 @@ static void sig_alrm(int signo){
     siglongjmp(jmpbuf,1);
 }
 
-int dddmain(){
+int testsend(){
     int sockfd;
     SAI dstAddr;
     char inbuff[20];

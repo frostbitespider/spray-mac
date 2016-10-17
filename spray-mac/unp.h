@@ -13,6 +13,7 @@
 #define SAI struct sockaddr_in
 #define byte unsigned char
 #define Malloc(type) malloc(sizeof(type))
+#define DEBUGMOD
 #pragma once
 char* dispAddr(const SA* sa,socklen_t len);
 char* get_network_addr(int sockfd,int opt);

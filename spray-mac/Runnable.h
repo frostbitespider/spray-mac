@@ -1,5 +1,4 @@
 #include <pthread.h>
-#include <stdio.h>
 #pragma once
 class Runnable{
 public:

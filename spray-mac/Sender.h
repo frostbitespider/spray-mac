@@ -11,18 +11,18 @@ enum SendType{
 };
 class Msg{
     public:
-    Msg():buf(NULL),bufsize(0){}
+    Msg():_size(0){}
     Msg(const char* m){
-        buf=(byte*)(m);
-        bufsize=strlen(m);
+        _str=(void*)m;
+        _size=strlen(m);
     }
-    Msg(byte* b,int s):buf(b),bufsize(s){}
-    Msg(char* c,int s):buf((byte*)c),bufsize(s){}
+    Msg(char* c,int l):_str(c),_size(l){}
     ~Msg(){
-        free(buf);
+        printf("msg dtor\n");
+        free(_str);
     }
-    byte* buf;
-    int bufsize;
+    void* _str;
+    int _size;
 };
 typedef struct{
     enum Strategy strategy;
@@ -31,9 +31,9 @@ typedef struct{
 }Attr;
 class Sender{
     public:
-    virtual int send(SendType,Strategy)=0;
+    virtual int send(Msg&)=0;
     virtual int abort()=0;
-    virtual void sock_close()=0;
+   //virtual void sock_close()=0;
     virtual ~Sender(){}
     Sender(){}
 };

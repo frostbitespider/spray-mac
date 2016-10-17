@@ -1,8 +1,11 @@
 #include <pthread.h>
+#include <iostream>
 #include "unp.h"
 #include "Runnable.h"
 #include <queue>
+#include <iostream>
 #include "Sender.h"
+#include "Msghdr.h"
 //#include "Displayer.h"
 #pragma once
 class Displayer;
@@ -16,7 +19,7 @@ public:
     char* getDisBuf() const;
     void Run();
     ///queue 不是线程安全的
-    std::queue<Msg*> msgQueue;
+    std::queue<std::shared_ptr<Msg>> msgQueue;
 private:
     void start();
     void initSocket();

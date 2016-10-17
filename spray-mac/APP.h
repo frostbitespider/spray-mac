@@ -13,13 +13,6 @@ int test()
     RunThread(threads,r);
     Displayer* disp=new Displayer(r);
     RunThread(threads+1,disp);
-    char* buff=(char*)malloc(1024);
-//    while(gets(buff)!=NULL){
-//        Msg m{buff};
-//        MessageSender* s=new MessageSender("192.168.1.242",8080,SINGLECAST,ONCE);
-//        s->send(buff);
-//        s->sock_close();
-//    }
     getchar();
     return 0;
 

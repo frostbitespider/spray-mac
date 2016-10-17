@@ -25,25 +25,7 @@ Receiver::Receiver()
 char* Receiver::getDisBuf() const{
     return disBuf;
 }
-/////约有1/3信息recv但没有disp
-//void Receiver::disp()
-//{
-//    pthread_detach(pthread_self());
-//    int i=0;
-//    while (1)
-//    {
-//        //lock();
-//        //pthread_cond_wait(&recv_cond,&mutex);
-//        pthread_cond_wait(&recv_cond,&mutex);
-//        //lock();
-//        memcpy(disBuf, recvBuf, curRecvLen); //dest source size_t
-//        //disBuf[curRecvLen] = 0;
-//        //for(int a=0;a<1000;a++);//do something
-//        printf("DISPLAY %d:%s\n", i++,disBuf);
-//        //unlock();
-//        //lock();
-//    }
-//}
+
 void Receiver::initSocket(){
     if((sockfd=Socket(AF_INET,SOCK_DGRAM,0))==-1){
         return;
@@ -94,31 +76,28 @@ void Receiver::start()
         //lock();
         curRecvLen=recvfrom(sockfd,recvBuf,Length,0,&recvAddr,&socklen);
         msgcoming=true;
-        printf("receive %d\n",curRecvLen);
+        recvBuf[curRecvLen]=0;
+        //printf("receive %d\n",curRecvLen);
         if(curRecvLen<=0)
             continue;
-        recvBuf[curRecvLen]=0;
+#ifdef DEBUGMOD
+        if(curRecvLen<sizeof(Hdr)){
+            for(int t=0;t<curRecvLen;t++)
+                printf("%02x",recvBuf[t]);
+            printf("\n");
+            continue;
+        }
+#endif
         char* t=(char*)malloc(curRecvLen);
-        memcpy(t,recvBuf,curRecvLen);
-        Msg* m=new Msg(t,curRecvLen);
+        memcpy(t,recvBuf+3*sizeof(uint32_t),curRecvLen-3*sizeof(uint32_t));
+        Msg m(t,curRecvLen);
+        std::shared_ptr<Msg> sm=std::make_shared<Msg>(m);
         lock();
-        msgQueue.push(m);
+        msgQueue.push(sm);
         pthread_cond_signal(&recv_cond);
         unlock();
         printf("RECV %d:%s\n",i++,recvBuf);
-        for(int t=0;t<curRecvLen;t++)
-            printf("%c ",recvBuf[t]);
-        printf("\n");
 
-        //sleep(8);
-        //sendto(sendsockfd, recvBuf, curRecvLen, 0, &recvAddr, sizeof(recvAddr));
-        //pthread_mutex_trylock(&mutex);
-
-        //lock();
-        //lock();
-        //unlock(mutex);
-        //pthread_cond_signal(&recv_cond);
-        //unlock();
     }
 }
 //启动监听
